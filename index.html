@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp Cưới: Khả Lực &amp; Hoài Ngọc | 17.11.2026</title>
+  <meta name="description"
+    content="Trân trọng kính mời quý khách tới chung vui mừng Lễ Thành Hôn của Khả Lực & Hoài Ngọc vào ngày 17/11/2026.">
+  <meta property="og:title" content="Thiệp Cưới Online: Khả Lực & Hoài Ngọc">
+  <meta property="og:description"
+    content="Trân trọng kính mời quý khách tới tham dự Lễ Thành Hôn của Khả Lực & Hoài Ngọc">
+  <meta property="og:image" content="assets/1.jpg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+</head>
+
+<body>
+
+  <!-- Floating Falling Petals Canvas -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- ==========================================================================
+       1. ENVELOPE OPENING & 2 FLYING BIRDS SCREEN
+       ========================================================================== -->
+  <div id="envelope-screen">
+    <!-- Ambient Golden Dust Particles -->
+    <div class="sparkle-ambient"></div>
+
+    <div class="envelope-intro-header">
+      <span class="sub-badge" id="envelope-badge">✦ Wedding Invitation ✦</span>
+      <h1 id="envelope-title">Thiệp Cưới</h1>
+      <div class="envelope-heart-divider">
+        <span class="eh-line"></span>
+        <span class="eh-icon">♥</span>
+        <span class="eh-line"></span>
+      </div>
+      <p class="invite-text" id="envelope-invite-text">Trân trọng kính mời quý khách mở thiệp chung vui cùng hai gia
+        đình</p>
+    </div>
+
+    <!-- 3D Wedding Envelope -->
+    <div class="envelope-box" id="envelope-box" onclick="triggerEnvelopeOpening()">
+      <div class="envelope-wrapper">
+        <div class="envelope-corner corner-tl"></div>
+        <div class="envelope-corner corner-tr"></div>
+        <div class="envelope-corner corner-bl"></div>
+        <div class="envelope-corner corner-br"></div>
+
+        <!-- Satin Gold Belly Band Ribbon -->
+        <div class="envelope-gold-ribbon"></div>
+
+        <!-- Flap & Pockets -->
+        <div class="envelope-flap"></div>
+        <div class="envelope-pocket-left"></div>
+        <div class="envelope-pocket-right"></div>
+        <div class="envelope-pocket-bottom"></div>
+
+        <!-- 3D Wax Seal Song Hỷ (囍) -->
+        <div class="envelope-wax-seal">
+          <span class="seal-character">囍</span>
+        </div>
+
+        <!-- Inner Letter Sliding Up -->
+        <div class="envelope-inner-card">
+          <div class="inner-card-ring">💍</div>
+          <h3>Lễ Thành Hôn</h3>
+          <p>KHẢ LỰC &amp; HOÀI NGỌC</p>
+          <div class="inner-card-date">17 . 11 . 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="envelope-open-btn" onclick="triggerEnvelopeOpening()">
+      <span>✉️</span> Chạm Để Mở Thiệp Cưới
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       2. BIRDS LAYER: 2 FLYING DOVES ANIMATION
+       ========================================================================== -->
+  <div id="birds-layer">
+    <!-- Dove 1 (Left flight path) -->
+    <div class="dove-entity" id="dove-left">
+      <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M42 45 C48 38, 55 35, 68 36 C75 36, 82 32, 85 26 C86 24, 88 25, 87 28 C85 34, 78 44, 72 47 C65 51, 52 53, 42 45 Z"
+          fill="#ffffff" stroke="#e0d0c0" stroke-width="0.8" />
+        <polygon points="87,27 94,29 86,31" fill="#d4af37" />
+        <circle cx="82" cy="28" r="1.5" fill="#2d141e" />
+        <path d="M42 45 C32 44, 20 40, 12 36 C18 42, 25 48, 38 48 Z" fill="#fcfcfc" stroke="#e0d0c0"
+          stroke-width="0.6" />
+        <path d="M40 47 C28 49, 16 52, 8 50 C16 53, 27 54, 38 50 Z" fill="#f5f5f5" stroke="#e0d0c0"
+          stroke-width="0.6" />
+        <g class="dove-wing-left">
+          <path d="M55 42 C50 25, 45 12, 35 2 C48 10, 60 22, 65 38 Z" fill="#ffffff" stroke="#d5c8be"
+            stroke-width="0.8" />
+          <path d="M52 38 C42 22, 32 10, 22 5 C35 15, 48 28, 55 40 Z" fill="#f8f8f8" stroke="#d5c8be"
+            stroke-width="0.6" />
+        </g>
+        <g class="dove-wing-right">
+          <path d="M58 40 C65 24, 72 10, 82 2 C72 12, 64 24, 62 40 Z" fill="#ffffff" stroke="#d5c8be"
+            stroke-width="0.8" />
+        </g>
+        <path d="M90 30 Q98 38, 92 48 Q85 42, 90 30 Z" fill="#d4af37" opacity="0.9" />
+      </svg>
+    </div>
+
+    <!-- Dove 2 (Right flight path) -->
+    <div class="dove-entity" id="dove-right">
+      <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M42 45 C48 38, 55 35, 68 36 C75 36, 82 32, 85 26 C86 24, 88 25, 87 28 C85 34, 78 44, 72 47 C65 51, 52 53, 42 45 Z"
+          fill="#ffffff" stroke="#e0d0c0" stroke-width="0.8" />
+        <polygon points="87,27 94,29 86,31" fill="#d4af37" />
+        <circle cx="82" cy="28" r="1.5" fill="#2d141e" />
+        <path d="M42 45 C32 44, 20 40, 12 36 C18 42, 25 48, 38 48 Z" fill="#fcfcfc" stroke="#e0d0c0"
+          stroke-width="0.6" />
+        <path d="M40 47 C28 49, 16 52, 8 50 C16 53, 27 54, 38 50 Z" fill="#f5f5f5" stroke="#e0d0c0"
+          stroke-width="0.6" />
+        <g class="dove-wing-left">
+          <path d="M55 42 C50 25, 45 12, 35 2 C48 10, 60 22, 65 38 Z" fill="#ffffff" stroke="#d5c8be"
+            stroke-width="0.8" />
+          <path d="M52 38 C42 22, 32 10, 22 5 C35 15, 48 28, 55 40 Z" fill="#f8f8f8" stroke="#d5c8be"
+            stroke-width="0.6" />
+        </g>
+        <g class="dove-wing-right">
+          <path d="M58 40 C65 24, 72 10, 82 2 C72 12, 64 24, 62 40 Z" fill="#ffffff" stroke="#d5c8be"
+            stroke-width="0.8" />
+        </g>
+        <circle cx="92" cy="38" r="5" fill="none" stroke="#d4af37" stroke-width="2" />
+      </svg>
+    </div>
+
+    <!-- Golden Ribbon between Doves (hidden to avoid duplicate names) -->
+    <div class="wedding-ribbon-banner" id="ribbon-banner" style="display: none;"></div>
+  </div>
+
+  <!-- Background Audio Element: Ngày Đầu Tiên.mp3 -->
+  <audio id="wedding-audio-track" loop preload="auto">
+    <source src="assets/IDo.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ==========================================================================
+       3. FLOATING MUSIC DISC & REPLAY WIDGET
+       ========================================================================== -->
+  <div class="floating-controls">
+    <button class="hero-music-btn" onclick="toggleMusic()" title="Bật / Tắt âm nhạc" aria-label="Bật tắt nhạc">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+      </svg>
+    </button>
+
+    <button class="replay-envelope-btn" onclick="replayEnvelope()" title="Mở lại hoạt cảnh thiệp">
+      🕊️
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       4. HERO INVITATION SECTION (EXACT MATCH REFERENCE DESIGN)
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <!-- Animated Background Slideshow (6 wedding photos) -->
+    <div class="hero-bg-slider" id="hero-slider">
+      <div class="hero-slide active" style="background-image: url('assets/1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/2.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/10.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/4.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/5.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('assets/11.jpg');"></div>
+    </div>
+
+    <!-- Cinematic Vignette Overlay -->
+    <div class="hero-cinematic-overlay"></div>
+
+    <!-- Top Floating Header (Fixed & transitions to frosted glass on scroll) -->
+    <header class="hero-top-bar" id="hero-top-bar">
+      <a href="#hero" class="hero-monogram" title="Khả Lực &amp; Hoài Ngọc">KL &amp; HN</a>
+      <div class="hero-top-actions">
+        <a href="#gift" class="hero-scroll-gift-btn" title="Gửi quà &amp; mừng cưới">
+          <span class="gift-icon-sparkle">🎁</span>
+          <span class="scroll-gift-text">Mừng Cưới</span>
+        </a>
+        <button class="hero-menu-btn" onclick="toggleNavMenu()" aria-label="Mở menu điều hướng">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Center Floating Typography: Matching Reference Image -->
+    <div class="hero-center-content">
+      <h3 class="hero-couple-title">Khả Lực &amp; Hoài Ngọc</h3>
+      <div class="hero-heart-divider">
+        <span class="heart-line"></span>
+        <span class="heart-icon">♥</span>
+        <span class="heart-line"></span>
+      </div>
+      <div class="hero-date-display">17 . 11 . 2026</div>
+      <a href="#countdown" class="hero-details-btn">
+        XEM CHI TIẾT <span class="btn-arrow-down">↓</span>
+      </a>
+    </div>
+
+    <!-- Bottom Bar: Frosted Music Button (Left) & Mouse Scroll Pill (Center) -->
+    <div class="hero-bottom-bar">
+
+      <a href="#countdown" class="hero-scroll-indicator" aria-label="Cuộn xuống">
+        <div class="mouse-pill">
+          <div class="mouse-wheel"></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. COUNTDOWN SECTION (FULLSCREEN VIEWPORT FRAME)
+       ========================================================================== -->
+  <section class="countdown-section" id="countdown">
+    <div class="container">
+      <div class="countdown-badge-calligraphy">Save The Date</div>
+      <div class="section-tag-gold">✦ Thời Khắc Thiêng Liêng ✦</div>
+      <h2 class="countdown-title">Đếm Ngược Ngày Về Chung Đôi</h2>
+
+      <div class="countdown-grid">
+        <div class="countdown-item">
+          <div class="countdown-number" id="days">30</div>
+          <div class="countdown-label">Ngày</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="hours">17</div>
+          <div class="countdown-label">Giờ</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="minutes">33</div>
+          <div class="countdown-label">Phút</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="seconds">50</div>
+          <div class="countdown-label">Giây</div>
+        </div>
+      </div>
+
+      <div class="countdown-date-badge">
+        <span>Thứ Ba, 17 tháng 11 năm 2026 | Hồi 08:10</span>
+      </div>
+
+      <p class="countdown-note">
+        ✨ Cùng đếm từng nhịp đập yêu thương hướng về ngày 17/11/2026 ✨
+      </p>
+
+      <a href="#couple" class="countdown-scroll-down" aria-label="Cuộn xuống xem cặp đôi">
+        <span>CÔ DÂU &amp; CHÚ RỂ</span>
+        <span class="scroll-arrow-anim">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. COUPLE & FAMILIES INTRODUCTION
+       ========================================================================== -->
+  <section class="couple-section" id="couple">
+    <!-- Decorative Corner Filigrees -->
+    <div class="couple-corner-flourish top-left" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 90 Q 10 10 90 10" stroke="url(#goldGrad1)" stroke-width="2" fill="none" />
+        <path d="M20 90 Q 20 20 90 20" stroke="url(#goldGrad1)" stroke-width="1" stroke-dasharray="3 3" fill="none" />
+        <circle cx="20" cy="20" r="4" fill="#D4AF37" />
+        <defs>
+          <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="100%" stop-color="#e8a5b8" stop-opacity="0.3" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="couple-corner-flourish bottom-right" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M90 10 Q 90 90 10 90" stroke="url(#goldGrad2)" stroke-width="2" fill="none" />
+        <path d="M80 10 Q 80 80 10 80" stroke="url(#goldGrad2)" stroke-width="1" stroke-dasharray="3 3" fill="none" />
+        <circle cx="80" cy="80" r="4" fill="#D4AF37" />
+        <defs>
+          <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e8a5b8" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#D4AF37" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge-wrap">
+          <span class="section-badge">✦ Đôi Uyên Ương ✦</span>
+        </div>
+        <h2 class="section-title">Chú Rể &amp; Cô Dâu</h2>
+        <div class="couple-title-divider">
+          <span class="divider-line"></span>
+          <span class="divider-heart">❦</span>
+          <span class="divider-line"></span>
+        </div>
+        <p class="section-subtitle">
+          "Hai tâm hồn gặp gỡ, hai trái tim hòa chung một nhịp đập. Chúng mình thật may mắn khi tìm thấy nhau giữa cuộc
+          đời rộng lớn."
+        </p>
+      </div>
+
+      <div class="couple-grid">
+        <!-- Floating Love Connector Emblem -->
+        <div class="couple-center-heart" aria-hidden="true">
+          <div class="heart-pulse-ring"></div>
+          <div class="heart-icon-badge">♥</div>
+        </div>
+
+        <!-- Chú Rể -->
+        <div class="couple-card">
+          <span class="couple-role-badge">🤵 Chú Rể</span>
+          <div class="couple-avatar-wrap">
+            <div class="avatar-glow-ring"></div>
+            <img src="assets/chure.jpg" alt="Chú rể Khả Lực">
+          </div>
+          <div class="couple-nickname">Khả Lực</div>
+          <div class="name-flourish" aria-hidden="true"><span>— ❧ —</span></div>
+          <div class="family-box">
+            <h4><span class="box-icon">👑</span> Gia Đình Nhà Trai</h4>
+            <div class="family-decor-line"></div>
+            <p><strong><span class="f-icon">👔</span> Thân phụ:</strong> Ông Đào Khả Cường</p>
+            <p><strong><span class="f-icon">👗</span> Thân mẫu:</strong> Bà Đỗ Thị Sanh</p>
+            <div class="address">
+              <span class="addr-icon">📍</span> SN 116, Ngõ 5, Thôn 1, Dân Lý, Triệu Sơn
+            </div>
+          </div>
+        </div>
+
+        <!-- Cô Dâu -->
+        <div class="couple-card">
+          <span class="couple-role-badge">👰 Cô Dâu</span>
+          <div class="couple-avatar-wrap">
+            <div class="avatar-glow-ring"></div>
+            <img src="assets/codau.jpg" alt="Cô dâu Hoài Ngọc">
+          </div>
+          <div class="couple-nickname">Hoài Ngọc</div>
+          <div class="name-flourish" aria-hidden="true"><span>— ❧ —</span></div>
+          <div class="family-box">
+            <h4><span class="box-icon">👑</span> Gia Đình Nhà Gái</h4>
+            <div class="family-decor-line"></div>
+            <p><strong><span class="f-icon">👗</span> Thân mẫu:</strong> Bà Phạm Thị Nguyệt</p>
+            <div class="address">
+              <span class="addr-icon">📍</span> SN 9, Ngõ 6, Hòa Lợi, Thọ Phú, Triệu Sơn
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Romantic Invitation Ornament -->
+      <div class="couple-footer-invitation">
+        <div class="invitation-ornament-pill">
+          <span class="invitation-sparkle">✦</span>
+          <span>Trân trọng kính mời quý khách đến chung vui cùng gia đình chúng tôi!</span>
+          <span class="invitation-sparkle">✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. PHOTO GALLERY / ALBUM ẢNH CƯỚI
+       ========================================================================== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Khoảnh Khắc Hạnh Phúc</span>
+        <h2 class="section-title">Album Kỷ Niệm</h2>
+        <p class="section-subtitle">
+          Những bước chân đồng hành, những nụ cười rạng rỡ lưu giữ thanh xuân và tình yêu đôi lứa.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="gallery-container">
+        <!-- 1. Ảnh mở đầu -->
+        <div class="gallery-item" onclick="openLightbox('assets/1.jpg', 'Khởi Đầu Hạnh Phúc')">
+          <img src="assets/1.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Khởi Đầu Hạnh Phúc" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Khởi Đầu Hạnh Phúc</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 2. Ảnh 2 -->
+        <div class="gallery-item" onclick="openLightbox('assets/2.jpg', 'Ánh Mắt Trao Nhau')">
+          <img src="assets/2.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Ánh Mắt Trao Nhau" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Ánh Mắt Trao Nhau</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 3. Ảnh 3 (Landscape) -->
+        <div class="gallery-item" onclick="openLightbox('assets/3.jpg', 'Hẹn Ước Trăm Năm')">
+          <img src="assets/3.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Hẹn Ước Trăm Năm" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Hẹn Ước Trăm Năm</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 4. Ảnh 4 -->
+        <div class="gallery-item" onclick="openLightbox('assets/4.jpg', 'Nụ Cười Rạng Rỡ')">
+          <img src="assets/4.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Nụ Cười Rạng Rỡ" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Nụ Cười Rạng Rỡ</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 5. Chú Rể Khả Lực -->
+        <div class="gallery-item" onclick="openLightbox('assets/chure.jpg', 'Chú Rể Khả Lực')">
+          <img src="assets/chure.jpg" alt="Chú rể Khả Lực - Phong độ &amp; Lịch lãm" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Chú Rể Khả Lực</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 6. Cô Dâu Hoài Ngọc -->
+        <div class="gallery-item" onclick="openLightbox('assets/codau.jpg', 'Cô Dâu Hoài Ngọc')">
+          <img src="assets/codau.jpg" alt="Cô dâu Hoài Ngọc - Dịu dàng &amp; Xinh đẹp" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Cô Dâu Hoài Ngọc</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 7. Ảnh 5 -->
+        <div class="gallery-item" onclick="openLightbox('assets/5.jpg', 'Bên Nhau Bình Yên')">
+          <img src="assets/5.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Bên Nhau Bình Yên" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Bên Nhau Bình Yên</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 8. Ảnh 6 (Landscape) -->
+        <div class="gallery-item" onclick="openLightbox('assets/6.jpg', 'Khoảnh Khắc Ngọt Ngào')">
+          <img src="assets/6.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Khoảnh Khắc Ngọt Ngào" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Khoảnh Khắc Ngọt Ngào</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 9. Ảnh 7 -->
+        <div class="gallery-item" onclick="openLightbox('assets/7.jpg', 'Duyên Thắm Nồng Nàn')">
+          <img src="assets/7.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Duyên Thắm Nồng Nàn" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Duyên Thắm Nồng Nàn</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 10. Ảnh 8 (Landscape) -->
+        <div class="gallery-item" onclick="openLightbox('assets/8.jpg', 'Nắm Chặt Tay Nhau')">
+          <img src="assets/8.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Nắm Chặt Tay Nhau" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Nắm Chặt Tay Nhau</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 11. Ảnh 9 (Landscape) -->
+        <div class="gallery-item" onclick="openLightbox('assets/9.jpg', 'Vũ Điệu Tình Nồng')">
+          <img src="assets/9.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Vũ Điệu Tình Nồng" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Vũ Điệu Tình Nồng</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 12. Ảnh 10 -->
+        <div class="gallery-item" onclick="openLightbox('assets/10.jpg', 'Em Là Tất Cả')">
+          <img src="assets/10.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Em Là Tất Cả" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Em Là Tất Cả</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 13. Ảnh 11 -->
+        <div class="gallery-item" onclick="openLightbox('assets/11.jpg', 'Ngày Về Chung Đôi')">
+          <img src="assets/11.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Ngày Về Chung Đôi" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Ngày Về Chung Đôi</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+
+        <!-- 14. Ảnh 12 (Landscape) -->
+        <div class="gallery-item" onclick="openLightbox('assets/12.jpg', 'Hạnh Phúc Viên Mãn')">
+          <img src="assets/12.jpg" alt="Ảnh cưới Khả Lực &amp; Hoài Ngọc - Hạnh Phúc Viên Mãn" loading="lazy">
+          <div class="gallery-card-badge">
+            <span class="gallery-card-title">Hạnh Phúc Viên Mãn</span>
+            <span class="gallery-card-hint">🔍 Phóng to</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. WEDDING TIMELINE EVENTS
+       ========================================================================== -->
+  <section class="timeline-section" id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Chương Trình Hôn Lễ</span>
+        <h2 class="section-title">Lịch Trình Sự Kiện</h2>
+        <p class="section-subtitle">
+          Kính mời quý khách tới tham dự các nghi thức trọng thể và chung vui cùng gia đình chúng tôi.
+        </p>
+      </div>
+
+      <div class="timeline-cards-grid">
+        <!-- Event 1: Lễ Nạp Tài -->
+        <div class="timeline-card">
+          <div class="event-icon-wrap">🎁</div>
+          <h3 class="event-title">Lễ Nạp Tài</h3>
+          <div class="event-time-badge">
+            <div class="time">14:10</div>
+            <div class="date">Thứ Năm, 12 / 11 / 2026</div>
+            <div class="lunar">(Là ngày 04 tháng 10 năm Bính Ngọ)</div>
+          </div>
+          <div class="event-location">
+            <strong>GIA ĐÌNH NHÀ GÁI</strong>
+            SN 9, Ngõ 6, Hòa Lơi, Thọ Phú, Triệu Sơn
+          </div>
+          <div class="event-actions">
+            <a href="https://maps.google.com/?q=Tân+Ninh,+Triệu+Sơn,+Thanh+Hóa" target="_blank" class="btn-event-map">
+              <span>📍</span> Chỉ đường đến Nhà Gái
+            </a>
+            <button
+              onclick="addToGoogleCalendar('Lễ Nạp Tài - Khả Lực & Hoài Ngọc', '20261112T080000Z', '20261112T110000Z', 'Thọ Phú, Triệu Sơn, Thanh Hóa', 'Lễ Nạp Tài của Khả Lực & Hoài Ngọc')"
+              class="btn-event-cal">
+              <span>📅</span> Thêm vào Lịch
+            </button>
+          </div>
+        </div>
+
+        <!-- Event 2: Bữa Cơm Thân Mật -->
+        <div class="timeline-card">
+          <div class="event-icon-wrap">🥂</div>
+          <h3 class="event-title">Bữa Cơm Thân Mật</h3>
+          <div class="event-time-badge">
+            <div class="time">17:00</div>
+            <div class="date">Thứ Sáu, 16 / 11 / 2026</div>
+            <div class="lunar">(Là ngày 08 tháng 10 năm Bính Ngọ)</div>
+          </div>
+          <div class="event-location">
+            <strong>GIA ĐÌNH NHÀ TRAI</strong>
+            SN 116, Ngõ 5, Thôn 1, Dân Lý, Triệu Sơn
+          </div>
+          <div class="event-location">
+            <strong>GIA ĐÌNH NHÀ GÁI</strong>
+            SN 9, Ngõ 6, Hòa Lợi, Thọ Phú, Triệu Sơn
+          </div>
+          <div class="event-actions">
+            <a href="https://www.google.com/maps?q=19.822500,105.651417" target="_blank" rel="noopener noreferrer"
+              class="btn-event-map">
+              <span>📍</span> Chỉ đường đến Nhà Trai
+            </a>
+            <a href="https://www.google.com/maps?q=19.822500,105.651417" target="_blank" rel="noopener noreferrer"
+              class="btn-event-map">
+              <span>📍</span> Chỉ đường đến Nhà Gái
+            </a>
+            <button
+              onclick="addToGoogleCalendar('Tiệc Cưới Thân Mật - Khả Lực  & Hoài Ngọc', '20261116T100000Z', '20261116T140000Z', 'Dân Lý, Triệu Sơn, Thanh Hóa', 'Dự bữa cơm thân mật mừng hạnh phúc Khả Lực & Hoài Ngọc')"
+              class="btn-event-cal">
+              <span>📅</span> Thêm vào Lịch
+            </button>
+          </div>
+        </div>
+
+        <!-- Event 3: Lễ Thành Hôn (Sự Kiện Chính) -->
+        <div class="timeline-card main-event">
+          <span class="main-event-badge">Đại Lễ Chính Thức</span>
+          <div class="event-icon-wrap">💍</div>
+          <h3 class="event-title">Lễ Thành Hôn</h3>
+          <div class="event-time-badge">
+            <div class="time">09:00</div>
+            <div class="date">Thứ Bảy, 17 / 11 / 2026</div>
+            <div class="lunar">(Là ngày 09 tháng 10 năm Bính Ngọ)</div>
+          </div>
+          <div class="event-location">
+            <strong>GIA ĐÌNH NHÀ TRAI</strong>
+            SN 116, Ngõ 5, Thôn 1, Dân Lý, Triệu Sơn
+          </div>
+          <div class="event-actions">
+            <a href="https://www.google.com/maps?q=19.822500,105.651417" target="_blank" rel="noopener noreferrer"
+              class="btn-event-map">
+              <span>📍</span> Chỉ đường đến Nhà Trai
+            </a>
+            <button
+              onclick="addToGoogleCalendar('Lễ Thành Hôn - Khả Lực & Hoài Ngọc', '20261117T020000Z', '20261117T060000Z', 'SN 116, Ngõ 5, Thôn 1, Dân Lý, Triệu Sơn', 'Lễ Thành Hôn trọng đại của Khả Lực & Hoài Ngọc')"
+              class="btn-event-cal">
+              <span>📅</span> Thêm vào Lịch
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. GIFT & BANK QR SECTION (HỘP MỪNG CƯỚI ONLINE)
+       ========================================================================== -->
+  <section class="gift-section" id="gift">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Gửi Lời Chúc Phúc</span>
+        <h2 class="section-title">Hộp Mừng Cưới Online</h2>
+      </div>
+
+      <p class="gift-intro">
+        Sự hiện diện và lời chúc phúc chân thành của quý khách là món quà quý giá nhất đối với chúng tôi. Nếu không thể
+        về chung vui trực tiếp, quý khách có thể gửi gắm tình cảm và lời chúc qua mã QR ngân hàng dưới đây:
+      </p>
+
+      <div class="gift-qr-grid">
+        <!-- Chú Rể QR -->
+        <div class="qr-card">
+          <div class="qr-card-header">
+            <div class="qr-bank-logo">
+              <span class="bank-name-badge">MB BANK</span>
+              <span style="font-weight: bold; color: #e61d2b;">VietQR</span>
+            </div>
+            <div class="qr-recipient-role">Mừng Chú Rể</div>
+          </div>
+
+          <div class="qr-image-wrapper" onclick="openQrModal('groom')">
+            <img src="assets/qr_groom.png" alt="Mã QR Chú rể Đào Khả Lực - MB Bank" loading="lazy" onerror="this.onerror=null; this.src='https://img.vietqr.io/image/MB-0367380344-compact2.png?accountName=DAO%20KHA%20LUC&addInfo=Mung%20cuoi%20Kha%20Luc';">
+            <div class="qr-zoom-hint">🔍 Nhấp để phóng to mã QR</div>
+          </div>
+
+          <div class="account-details">
+            <div class="account-number-row">
+              <span class="account-number">0367380344</span>
+              <button class="btn-copy" onclick="copyToClipboard('0367380344', 'Chú Rể Khả Lực')">
+                📋 Sao chép
+              </button>
+            </div>
+            <div class="account-name">ĐÀO KHẢ LỰC</div>
+            <div class="bank-info-sub">Ngân hàng TMCP Quân Đội (MB Bank)</div>
+          </div>
+        </div>
+
+        <!-- Cô Dâu QR -->
+        <div class="qr-card">
+          <div class="qr-card-header">
+            <div class="qr-bank-logo">
+              <span class="bank-name-badge">MB BANK</span>
+              <span style="font-weight: bold; color: #e61d2b;">VietQR</span>
+            </div>
+            <div class="qr-recipient-role">Mừng Cô Dâu</div>
+          </div>
+
+          <div class="qr-image-wrapper" onclick="openQrModal('bride')">
+            <img src="assets/qr_bride.png" alt="Mã QR Cô dâu Hoài Ngọc - MB Bank" loading="lazy" onerror="this.onerror=null; this.src='https://img.vietqr.io/image/MB-0986308193-compact2.png?accountName=HOAI%20NGOC&addInfo=Mung%20cuoi%20Hoai%20Ngoc';">
+            <div class="qr-zoom-hint">🔍 Nhấp để phóng to mã QR</div>
+          </div>
+
+          <div class="account-details">
+            <div class="account-number-row">
+              <span class="account-number">0986308193</span>
+              <button class="btn-copy" onclick="copyToClipboard('0986308193', 'Cô Dâu Hoài Ngọc')">
+                📋 Sao chép
+              </button>
+            </div>
+            <div class="account-name">HOÀI NGỌC</div>
+            <div class="bank-info-sub">Ngân hàng TMCP Quân Đội (MB Bank)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ==========================================================================
+       12. FOOTER
+       ========================================================================== -->
+  <footer class="wedding-footer">
+    <div class="container">
+      <div class="footer-names">Khả Lực <br> &amp; <br>Hoài Ngọc</div>
+      <p class="footer-quote">
+        "Cảm ơn vì đã là một phần tươi đẹp trong ngày hạnh phúc nhất của chúng tôi!"
+      </p>
+      <div class="footer-bottom">
+        17 . 11 . 2026 | Triệu Sơn - Thanh Hóa | Made with ❤️ for Khả Lực &amp; Hoài Ngọc
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       13. MODALS & TOASTS
+       ========================================================================== -->
+  <!-- Toast Notification -->
+  <div id="toast-notification">✨ Đã sao chép!</div>
+
+  <!-- QR Zoom Modal -->
+  <div id="qr-modal">
+    <div class="modal-content-box">
+      <button class="modal-close-btn" onclick="closeQrModal()">✕</button>
+      <h3 id="modal-qr-title"
+        style="font-family: 'Playfair Display', serif; color: var(--primary-red); margin-bottom: 5px;">
+        Mừng Cưới
+      </h3>
+      <img id="modal-qr-img" class="modal-qr-img" src="" alt="Mã QR chi tiết">
+      <p id="modal-qr-account" style="font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;">
+      </p>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Photo Gallery -->
+  <div id="lightbox-modal" onclick="closeLightbox()">
+    <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); lightboxPrev()" aria-label="Ảnh trước">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <div class="lightbox-content-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="Ảnh phóng to">
+      <p id="lightbox-caption" style="color: #fff; margin-top: 12px; font-size: 1rem; font-weight: 500;"></p>
+      <span class="lightbox-counter" id="lightbox-counter"></span>
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); lightboxNext()" aria-label="Ảnh tiếp">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation Fullscreen Drawer Menu (Each item is a luxury Photo Frame) -->
+  <div id="nav-overlay">
+    <button class="nav-overlay-close" onclick="toggleNavMenu()" aria-label="Đóng menu">✕</button>
+
+    <div class="nav-overlay-header">
+      <div class="nav-overlay-monogram">KL &amp; HN</div>
+      <div class="nav-overlay-title">Khả Lực &amp; Hoài Ngọc</div>
+      <div class="nav-overlay-date">✦ 17. 11 . 2026 ✦</div>
+    </div>
+
+    <!-- Photo Frames Grid (Mỗi mục là một khung hình) -->
+    <div class="nav-frames-grid">
+      <!-- Frame 1: Trang Chủ -->
+      <a href="#hero" class="nav-frame-card" onclick="toggleNavMenu()">
+        <img class="nav-frame-img" src="assets/1.jpg" alt="Trang Chủ" loading="lazy">
+        <div class="nav-frame-overlay"></div>
+        <div class="nav-frame-inner">
+          <div class="nav-frame-badge">01</div>
+          <div class="nav-frame-text">
+            <h3 class="nav-frame-name">Trang Chủ</h3>
+            <span class="nav-frame-sub">Lời Chào Hôn Lễ</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Frame 2: Đếm Ngược -->
+      <a href="#countdown" class="nav-frame-card" onclick="toggleNavMenu()">
+        <img class="nav-frame-img" src="assets/2.jpg" alt="Thời Khắc Thiêng Liêng" loading="lazy">
+        <div class="nav-frame-overlay"></div>
+        <div class="nav-frame-inner">
+          <div class="nav-frame-badge">02</div>
+          <div class="nav-frame-text">
+            <h3 class="nav-frame-name">Thời Khắc</h3>
+            <span class="nav-frame-sub">Đếm Ngược Ngày Cưới</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Frame 3: Cô Dâu & Chú Rể -->
+      <a href="#couple" class="nav-frame-card" onclick="toggleNavMenu()">
+        <img class="nav-frame-img" src="assets/3.jpg" alt="Cô Dâu &amp; Chú Rể" loading="lazy">
+        <div class="nav-frame-overlay"></div>
+        <div class="nav-frame-inner">
+          <div class="nav-frame-badge">03</div>
+          <div class="nav-frame-text">
+            <h3 class="nav-frame-name">Đôi Uyên Ương</h3>
+            <span class="nav-frame-sub">Khả Lực &amp; Hoài Ngọc</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Frame 4: Lịch Trình -->
+      <a href="#gallery" class="nav-frame-card" onclick="toggleNavMenu()">
+        <img class="nav-frame-img" src="assets/4.jpg" alt="Album Ảnh Cưới" loading="lazy">
+        <div class="nav-frame-overlay"></div>
+        <div class="nav-frame-inner">
+          <div class="nav-frame-badge">04</div>
+          <div class="nav-frame-text">
+            <h3 class="nav-frame-name">Album Ảnh</h3>
+            <span class="nav-frame-sub">Khoảnh Khắc Kỷ Niệm</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Frame 5: Album Ảnh -->
+      <a href="#timeline" class="nav-frame-card" onclick="toggleNavMenu()">
+        <img class="nav-frame-img" src="assets/5.jpg" alt="Lịch Trình Sự Kiện" loading="lazy">
+        <div class="nav-frame-overlay"></div>
+        <div class="nav-frame-inner">
+          <div class="nav-frame-badge">05</div>
+          <div class="nav-frame-text">
+            <h3 class="nav-frame-name">Lịch Trình</h3>
+            <span class="nav-frame-sub">Sự Kiện Hôn Lễ</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Frame 6: Hộp Mừng Cưới -->
+      <a href="#gift" class="nav-frame-card" onclick="toggleNavMenu()">
+        <img class="nav-frame-img" src="assets/6.jpg" alt="Hộp Mừng Cưới" loading="lazy">
+        <div class="nav-frame-overlay"></div>
+        <div class="nav-frame-inner">
+          <div class="nav-frame-badge">06</div>
+          <div class="nav-frame-text">
+            <h3 class="nav-frame-name">Mừng Cưới</h3>
+            <span class="nav-frame-sub">Gửi Quà &amp; QR Bank</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
