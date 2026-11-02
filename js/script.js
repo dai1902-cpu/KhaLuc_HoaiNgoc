@@ -638,6 +638,36 @@ function initScrollAnimations() {
 }
 
 
+// ==========================================
+// 13. SMOOTH SCROLL ANCHOR NAVIGATION (PREVENT LAZY LOAD SHORT-STOP)
+// ==========================================
+function initSmoothScrollLinks() {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#' || targetId === '#!') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+
+        // Close navigation menu if currently open
+        const overlay = document.getElementById('nav-overlay');
+        if (overlay && overlay.classList.contains('open')) {
+          toggleNavMenu();
+        }
+
+        // Smoothly scroll to the target section
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Update URL hash cleanly
+        if (history.pushState) {
+          history.pushState(null, null, targetId);
+        }
+      }
+    });
+  });
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   initHeroSlider();
@@ -647,6 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   handleNavScroll();
   initScrollAnimations();
+  initSmoothScrollLinks();
 });
 
 

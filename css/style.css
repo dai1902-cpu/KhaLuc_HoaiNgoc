@@ -59,6 +59,22 @@ html {
   font-size: 16px;
 }
 
+section[id],
+#hero,
+#countdown,
+#couple,
+#gallery,
+#timeline,
+#gift,
+.gift-section,
+.timeline-section,
+.gallery-section,
+.couple-section,
+.countdown-section,
+.hero-section {
+  scroll-margin-top: 80px;
+}
+
 body {
   font-family: 'Be Vietnam Pro', sans-serif;
   background-color: var(--bg-champagne);
@@ -2145,10 +2161,16 @@ body {
 .gallery-item img {
   width: 100%;
   height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
   display: block;
   transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     filter 0.65s ease;
   will-change: transform;
+}
+
+.gallery-item.landscape img {
+  aspect-ratio: 3 / 2;
 }
 
 .gallery-item:hover img {
