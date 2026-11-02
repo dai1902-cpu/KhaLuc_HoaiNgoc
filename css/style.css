@@ -65,14 +65,17 @@ section[id],
 #couple,
 #gallery,
 #timeline,
-#gift,
-.gift-section,
 .timeline-section,
 .gallery-section,
 .couple-section,
 .countdown-section,
 .hero-section {
   scroll-margin-top: 80px;
+}
+
+#gift,
+.gift-section {
+  scroll-margin-top: 55px;
 }
 
 body {
@@ -2426,15 +2429,24 @@ body {
    GIFT & BANK QR SECTION (HỘP MỪNG CƯỚI ONLINE)
    ========================================================================== */
 .gift-section {
-  padding: 95px 0;
+  padding: 35px 0 80px;
   background: radial-gradient(circle at top, #fffdf8 0%, #faf3f5 100%);
   position: relative;
+}
+
+.gift-section .container {
+  position: relative;
+}
+
+.gift-section .section-header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .gift-intro {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 50px;
+  margin: 0 auto 28px;
   color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.8;
@@ -3230,12 +3242,16 @@ body {
 
   /* Gift Section */
   .gift-section {
-    padding: 65px 0;
+    padding: 20px 0 60px;
+  }
+
+  .gift-section .section-header {
+    margin-bottom: 14px;
   }
 
   .gift-intro {
     font-size: 0.92rem;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     padding: 0 10px;
   }
 
@@ -3764,13 +3780,17 @@ body {
 
   /* Gift Section on Phones */
   .gift-section {
-    padding: 55px 0;
+    padding: 10px 0 67px;
+  }
+
+  .gift-section .section-header {
+    margin-bottom: 10px;
   }
 
   .gift-intro {
     font-size: 0.86rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    line-height: 1.5;
+    margin-bottom: 14px;
     padding: 0 6px;
   }
 
