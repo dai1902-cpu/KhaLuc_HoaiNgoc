@@ -185,10 +185,6 @@
     <header class="hero-top-bar" id="hero-top-bar">
       <a href="#hero" class="hero-monogram" title="Khả Lực &amp; Hoài Ngọc">L &amp; N</a>
       <div class="hero-top-actions">
-        <a href="#gift" class="hero-scroll-gift-btn" aria-label="Gửi quà &amp; mừng cưới">
-          <span class="gift-icon-sparkle">🎁</span>
-          <span class="scroll-gift-text">Mừng Cưới</span>
-        </a>
         <button class="hero-menu-btn" onclick="toggleNavMenu()" aria-label="Mở menu điều hướng">
           <span></span>
           <span></span>
@@ -640,7 +636,7 @@
           <div class="event-icon-wrap">🥂</div>
           <h3 class="event-title">Bữa Cơm Thân Mật</h3>
           <div class="event-time-badge">
-            <div class="time">17:00</div>
+            <div class="time">16:00</div>
             <div class="date">Thứ Hai, 16 / 11 / 2026</div>
             <div class="lunar">(Là ngày 08 tháng 10 năm Bính Ngọ)</div>
           </div>
@@ -699,53 +695,6 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       10. GIFT & BANK QR SECTION (HỘP MỪNG CƯỚI ONLINE)
-       ========================================================================== -->
-  <section class="gift-section" id="gift">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Gửi Lời Chúc Phúc</span>
-        <h2 class="section-title">Hộp Mừng Cưới Online</h2>
-      </div>
-
-      <p class="gift-intro">
-        Sự hiện diện và lời chúc phúc chân thành của quý khách là món quà quý giá nhất đối với chúng tôi. Nếu không thể
-        về chung vui trực tiếp, quý khách có thể gửi gắm tình cảm và lời chúc qua mã QR ngân hàng dưới đây:
-      </p>
-
-      <div class="gift-qr-grid">
-        <!-- Cô Dâu QR -->
-        <div class="qr-card">
-          <div class="qr-card-header">
-            <div class="qr-bank-logo">
-              <span class="bank-name-badge">MB BANK</span>
-              <span style="font-weight: bold; color: #e61d2b;">VietQR</span>
-            </div>
-            <div class="qr-recipient-role">Mừng Hạnh Phúc</div>
-          </div>
-
-          <div class="qr-image-wrapper" onclick="openQrModal('bride')">
-            <img src="assets/qr_bride.png" alt="Mã QR Cô dâu Hoài Ngọc - MB Bank" loading="lazy"
-              onerror="this.onerror=null; this.src='https://img.vietqr.io/image/MB-0986308193-compact2.png?accountName=HOAI%20NGOC&addInfo=Mung%20cuoi%20Hoai%20Ngoc';">
-            <div class="qr-zoom-hint">🔍 Nhấp để phóng to mã QR</div>
-          </div>
-
-          <div class="account-details">
-            <div class="account-number-row">
-              <span class="account-number">0986308193</span>
-              <button class="btn-copy" onclick="copyToClipboard('0986308193', 'Cô Dâu Hoài Ngọc')">
-                📋 Sao chép
-              </button>
-            </div>
-            <div class="account-name">HOÀI NGỌC</div>
-            <div class="bank-info-sub">Ngân hàng TMCP Quân Đội (MB Bank)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
 
   <!-- ==========================================================================
@@ -768,19 +717,6 @@
        ========================================================================== -->
   <!-- Toast Notification -->
   <div id="toast-notification">✨ Đã sao chép!</div>
-
-  <!-- QR Zoom Modal -->
-  <div id="qr-modal">
-    <div class="modal-content-box">
-      <button class="modal-close-btn" onclick="closeQrModal()">✕</button>
-      <h3 id="modal-qr-title"
-        style="font-family: 'Playfair Display', serif; color: var(--primary-red); margin-bottom: 5px;">
-        Mừng Cưới
-      </h3>
-      <img id="modal-qr-img" class="modal-qr-img" src="" alt="Mã QR chi tiết">
-      <p id="modal-qr-account" style="font-size: 0.95rem; color: var(--text-dark); line-height: 1.6;">
-      </p>
-    </div>
   </div>
 
   <!-- Lightbox Modal for Photo Gallery -->
@@ -878,19 +814,6 @@
           <div class="nav-frame-text">
             <h3 class="nav-frame-name">Lịch Trình</h3>
             <span class="nav-frame-sub">Sự Kiện Hôn Lễ</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Frame 6: Hộp Mừng Cưới -->
-      <a href="#gift" class="nav-frame-card" onclick="toggleNavMenu()">
-        <img class="nav-frame-img" src="assets/6.jpg" alt="Hộp Mừng Cưới" loading="lazy">
-        <div class="nav-frame-overlay"></div>
-        <div class="nav-frame-inner">
-          <div class="nav-frame-badge">06</div>
-          <div class="nav-frame-text">
-            <h3 class="nav-frame-name">Mừng Cưới</h3>
-            <span class="nav-frame-sub">Gửi Quà &amp; QR Bank</span>
           </div>
         </div>
       </a>

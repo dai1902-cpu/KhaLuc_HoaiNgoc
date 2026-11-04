@@ -260,70 +260,6 @@ function showToast(message) {
   }, 3500);
 }
 
-function copyToClipboard(text, description) {
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text).then(() => {
-      showToast(`Đã sao chép số tài khoản: ${text} (${description})`);
-    }).catch(() => fallbackCopy(text, description));
-  } else {
-    fallbackCopy(text, description);
-  }
-}
-
-function fallbackCopy(text, description) {
-  const textArea = document.createElement('textarea');
-  textArea.value = text;
-  textArea.style.position = 'fixed';
-  textArea.style.opacity = '0';
-  document.body.appendChild(textArea);
-  textArea.select();
-  try {
-    document.execCommand('copy');
-    showToast(`Đã sao chép: ${text} (${description})`);
-  } catch (err) {
-    showToast(`Số tài khoản: ${text}`);
-  }
-  document.body.removeChild(textArea);
-}
-
-
-// ==========================================
-// 6. QR CODE ZOOM MODAL
-// ==========================================
-const qrModal = document.getElementById('qr-modal');
-const modalQrImage = document.getElementById('modal-qr-img');
-const modalQrTitle = document.getElementById('modal-qr-title');
-const modalQrAccount = document.getElementById('modal-qr-account');
-
-function openQrModal(type) {
-  if (type === 'groom') {
-    modalQrImage.src = 'assets/qr_groom.png';
-    modalQrImage.onerror = function() {
-      this.src = 'https://img.vietqr.io/image/MB-0367380344-compact2.png?accountName=DAO%20KHA%20LUC&addInfo=Mung%20cuoi%20Kha%20Luc';
-    };
-    modalQrTitle.textContent = 'Mừng Cưới Chú Rể: ĐÀO KHẢ LỰC';
-    modalQrAccount.innerHTML = 'MB Bank: <strong>0367380344</strong><br>Chủ TK: ĐÀO KHẢ LỰC';
-  } else {
-    modalQrImage.src = 'assets/qr_bride.png';
-    modalQrImage.onerror = function() {
-      this.src = 'https://img.vietqr.io/image/MB-0986308193-compact2.png?accountName=HOAI%20NGOC&addInfo=Mung%20cuoi%20Hoai%20Ngoc';
-    };
-    modalQrTitle.textContent = 'Mừng Cưới Cô Dâu: HOÀI NGỌC';
-    modalQrAccount.innerHTML = 'MB Bank: <strong>0986308193</strong><br>Chủ TK: HOÀI NGỌC';
-  }
-  qrModal.classList.add('show');
-}
-
-function closeQrModal() {
-  qrModal.classList.remove('show');
-}
-
-if (qrModal) {
-  qrModal.addEventListener('click', (e) => {
-    if (e.target === qrModal) closeQrModal();
-  });
-}
-
 
 // ==========================================
 // 7. PHOTO GALLERY & LIGHTBOX MODAL
@@ -510,7 +446,6 @@ document.addEventListener('keydown', (e) => {
     if (overlay && overlay.classList.contains('open')) {
       toggleNavMenu();
     }
-    if (typeof closeQrModal === 'function') closeQrModal();
     if (typeof closeLightbox === 'function') closeLightbox();
   }
 });
@@ -599,12 +534,6 @@ function initScrollAnimations() {
   document.querySelectorAll('.timeline-card').forEach((card, idx) => {
     card.classList.add('reveal-on-scroll', 'reveal-fade-up');
     card.style.setProperty('--reveal-delay', `${(idx * 0.15 + 0.05).toFixed(2)}s`);
-  });
-
-  // 6. Configure Gift / Bank QR Cards with Stagger
-  document.querySelectorAll('.qr-card').forEach((card, idx) => {
-    card.classList.add('reveal-on-scroll', 'reveal-fade-up');
-    card.style.setProperty('--reveal-delay', `${(idx * 0.18 + 0.05).toFixed(2)}s`);
   });
 
   // 7. Setup IntersectionObserver
